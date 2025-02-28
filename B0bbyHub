@@ -266,3 +266,104 @@ end
    end,
 })
 
+local Button = Tab:CreateButton({
+   Name = "Esp Items",
+   Callback = function()
+   local Workspace = game:GetService("Workspace")
+
+local function createHighlight(model, outlineColor, fillColor)
+    if model and not model:FindFirstChildOfClass("Highlight") then
+        local highlight = Instance.new("Highlight")
+        highlight.Parent = model
+        highlight.Adornee = model
+        highlight.FillTransparency = 0.75
+        highlight.FillColor = fillColor
+        highlight.OutlineColor = outlineColor
+        highlight.OutlineTransparency = 0
+    end
+end
+
+local function createBillboardGui(target, text, color)
+    if target and not target:FindFirstChildOfClass("BillboardGui") then
+        local billboardGui = Instance.new("BillboardGui")
+        billboardGui.Adornee = target
+        billboardGui.Size = UDim2.new(0, 100, 0, 25)
+        billboardGui.AlwaysOnTop = true
+        billboardGui.Parent = target
+
+        local textLabel = Instance.new("TextLabel")
+        textLabel.Size = UDim2.new(1, 0, 1, 0)
+        textLabel.BackgroundTransparency = 1
+        textLabel.TextScaled = true
+        textLabel.TextColor3 = color
+        textLabel.Text = text
+        textLabel.Font = Enum.Font.Antique  -- Set the font to Antique
+        textLabel.Parent = billboardGui
+    end
+end
+
+local function applyHighlighting(item)
+    local targetPart = item:IsA("Model") and item:FindFirstChildWhichIsA("BasePart")
+    if targetPart then
+        local color
+        if item.Name == "BloxyCola" then
+            color = Color3.fromRGB(204, 153, 0)  -- Dark yellow
+        elseif item.Name == "Medkit" then
+            color = Color3.fromRGB(128, 0, 128)  -- Purple
+        else
+            return  -- Skip other items
+        end
+        createHighlight(targetPart, color, color)
+        createBillboardGui(targetPart, item.Name, color)
+    end
+end
+
+local function highlightItems()
+    for _, item in pairs(Workspace:GetDescendants()) do
+        if item:IsA("Model") and (item.Name == "BloxyCola" or item.Name == "Medkit") then
+            applyHighlighting(item)
+        end
+    end
+end
+
+-- Initial application of highlighting to existing items
+highlightItems()
+
+-- Event listener for new items
+Workspace.DescendantAdded:Connect(function(descendant)
+    if descendant:IsA("Model") and (descendant.Name == "BloxyCola" or descendant.Name == "Medkit") then
+        wait(1)  -- Give time for the item to fully load
+        applyHighlighting(descendant)
+    end
+end)
+
+-- Event listener for removing highlighting when items are removed
+Workspace.DescendantRemoving:Connect(function(descendant)
+    if descendant:IsA("Model") then
+        local highlight = descendant:FindFirstChildOfClass("Highlight")
+        if highlight then
+            highlight:Destroy()
+        end
+
+        local billboardGui = descendant:FindFirstChildOfClass("BillboardGui")
+        if billboardGui then
+            billboardGui:Destroy()
+        end
+    end
+end)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Delayed Auto fix generator (5 Second Delay)",
+   Callback = function()
+   while true do
+for i, v in pairs(game.Workspace.Map.Ingame.Map:GetChildren()) do
+    if v.Name == "Generator" then
+        v:WaitForChild("Remotes"):WaitForChild("RE"):FireServer()
+    end
+end
+wait(5)
+end
+   end,
+})
