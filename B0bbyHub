@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "B0bbyHub / Forsaken (BETA)",
+   Name = " B0bbyHub / Forsaken (BETA)",
    Icon = 99972211610543, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "B0bbyhub / Forsaken (BETA)",
    LoadingSubtitle = "Loading..",
@@ -41,6 +41,13 @@ local Section = Tab:CreateSection("Esp")
 local Button = Tab:CreateButton({
    Name = "Killer Esp",
    Callback = function()
+Rayfield:Notify({
+   Title = "Killer esp enabled",
+   Content = " ",
+   Duration = 6.5,
+   Image = 95344475479538,
+})
+
 local Players = game.Workspace:WaitForChild("Players")
 local RunService = game:GetService("RunService")
 
