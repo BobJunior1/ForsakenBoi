@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = " B0bbyHub / Forsaken (BETA)",
+   Name = "B0bbyHub / Forsaken (BETA)",
    Icon = 99972211610543, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "B0bbyhub / Forsaken (BETA)",
    LoadingSubtitle = "Loading..",
@@ -72,6 +72,7 @@ local function createBillboardGui(target, text, color)
         billboardGui.Size = UDim2.new(0, 100, 0, 25)
         billboardGui.AlwaysOnTop = true
         billboardGui.Parent = target.Parent
+        billboardGui.StudsOffset = Vector3.new(0, 2, 0)  -- Adjust the value to move the BillboardGui upwards
 
         local textLabel = Instance.new("TextLabel")
         textLabel.Size = UDim2.new(1, 0, 1, 0)
@@ -85,6 +86,7 @@ local function createBillboardGui(target, text, color)
         billboardGui.TextLabel.Text = text
         billboardGui.TextLabel.TextColor3 = color
         billboardGui.TextLabel.Font = Enum.Font.Antique
+        billboardGui.StudsOffset = Vector3.new(0, 2, 0)  -- Apply offset even if BillboardGui already exists
     end
 end
 
