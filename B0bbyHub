@@ -13,7 +13,7 @@ local Window = Rayfield:CreateWindow({
    ConfigurationSaving = {
       Enabled = false,
       FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Ignorethis"
+      FileName = "IgnoreThis"
    },
 
    Discord = {
@@ -26,11 +26,11 @@ local Window = Rayfield:CreateWindow({
    KeySettings = {
       Title = "Is Bob Cool?",
       Subtitle = "Yes or no?",
-      Note = "Hint: Yes (the first letter is capital)", -- Use this to tell the user how to get a key
-      FileName = "SkibdiBobbyKey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      Note = "Hint: Yes ofc", -- Use this to tell the user how to get a key
+      FileName = "skibdiBobbyKey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"Yes"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Key = {"yes"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
 
@@ -42,9 +42,9 @@ local Button = Tab:CreateButton({
    Name = "Killer Esp",
    Callback = function()
 Rayfield:Notify({
-   Title = "Killer esp enabled",
-   Content = " ",
-   Duration = 6.5,
+   Title = "Killer esp Activated",
+   Content = "The killer is Now highlighted",
+   Duration = 3,
    Image = 95344475479538,
 })
 
@@ -131,8 +131,14 @@ end)
 })
 
 local Button = Tab:CreateButton({
-   Name = "Generator Esp",
+   Name = "Generator esp",
    Callback = function()
+   Rayfield:Notify({
+   Title = "Generator esp Activated",
+   Content = "All Generators are Now highlighted",
+   Duration = 3,
+   Image = 4483362458,
+})
    local function createOutline(item)
     local Highlight = Instance.new('Highlight')
     Highlight.Parent = item
@@ -161,8 +167,14 @@ end)
 })
 
 local Button = Tab:CreateButton({
-   Name = "Player Esp",
+   Name = "Player esp",
    Callback = function()
+   Rayfield:Notify({
+   Title = "Player esp Activated",
+   Content = "All players are Now highlighted",
+   Duration = 3,
+   Image = 4483362458,
+})
 local Players = game:GetService("Players")
 
 local function createOutlineESP(model, outlineColor, fillColor)
@@ -278,6 +290,12 @@ end
 local Button = Tab:CreateButton({
    Name = "Esp Items",
    Callback = function()
+   Rayfield:Notify({
+   Title = "Esp Items Activated",
+   Content = "All Items are Now highlighted.",
+   Duration = 3,
+   Image = 4483362458,
+})
    local Workspace = game:GetService("Workspace")
 
 local function createHighlight(model, outlineColor, fillColor)
@@ -366,6 +384,12 @@ end)
 local Button = Tab:CreateButton({
    Name = "Delayed Auto fix generator (10 Second Delay)",
    Callback = function()
+   Rayfield:Notify({
+   Title = "Delayed Auto-fix generator Activated",
+   Content = "You will need to Re-execute it Every round.",
+   Duration = 3,
+   Image = 4483362458,
+})
    while true do
 for i, v in pairs(game.Workspace.Map.Ingame.Map:GetChildren()) do
     if v.Name == "Generator" then
@@ -380,6 +404,12 @@ end
 local Button = Tab:CreateButton({
    Name = "Delayed Auto fix generator (5 Second Delay)",
    Callback = function()
+   Rayfield:Notify({
+   Title = "Delayed Auto-fix generator Activated",
+   Content = "You will need to Re-execute it Every round.",
+   Duration = 3,
+   Image = 4483362458,
+})
    while true do
 for i, v in pairs(game.Workspace.Map.Ingame.Map:GetChildren()) do
     if v.Name == "Generator" then
@@ -392,63 +422,14 @@ end
 })
 
 local Button = Tab:CreateButton({
-   Name = "Chance Aimbot (Use Shiftlock/First Person)",
-   Callback = function()
-   local player = game.Players.LocalPlayer
-local mouse = player:GetMouse()
-local camlockEnabled = false
-local targetObject = nil
-
-function getTargetObject()
-    local killersFolder = workspace:WaitForChild("Players"):WaitForChild("Killers")
-    local closestObject = nil
-    local closestDistance = math.huge
-    for _, v in pairs(killersFolder:GetChildren()) do
-        if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") then
-            local screenPosition = workspace.CurrentCamera:WorldToScreenPoint(v.HumanoidRootPart.Position)
-            local distance = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(screenPosition.X, screenPosition.Y)).magnitude
-            if distance < closestDistance then
-                closestDistance = distance
-                closestObject = v
-            end
-        end
-    end
-    return closestObject
-end
-
-function enableCamlockForDuration()
-    targetObject = getTargetObject()
-    if targetObject then
-        camlockEnabled = true
-        delay(2, function()
-            camlockEnabled = false
-            targetObject = nil
-        end)
-    end
-end
-
-game:GetService("RunService").RenderStepped:Connect(function()
-    if camlockEnabled and targetObject and targetObject:FindFirstChild("HumanoidRootPart") then
-        workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, targetObject.HumanoidRootPart.Position)
-    end
-end)
-
-local playerGui = player:WaitForChild("PlayerGui")
-local mainUI = playerGui:WaitForChild("MainUI")
-local abilityContainer = mainUI:WaitForChild("AbilityContainer")
-local shootButton = abilityContainer:WaitForChild("Shoot")
-
-local function onShootButtonPressed()
-    enableCamlockForDuration()
-end
-
-shootButton.Activated:Connect(onShootButtonPressed)
-   end,
-})
-
-local Button = Tab:CreateButton({
    Name = "Remove Slowness effect",
    Callback = function()
+   Rayfield:Notify({
+   Title = "Slowness Effect Removed",
+   Content = "its normal if it says "Callback Function" if you try executing it again.",
+   Duration = 6.5,
+   Image = 4483362458,
+})
    game:GetService("ReplicatedStorage").Modules.StatusEffects.Slowness:Destroy()
    end,
 })
@@ -456,13 +437,155 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
    Name = "Remove Blindness effect",
    Callback = function()
+   Rayfield:Notify({
+   Title = "Blindness effect Removed",
+   Content = "its normal if it says "Callback Function" if you try executing it again.",
+   Duration = 3,
+   Image = 4483362458,
+})
    game:GetService("ReplicatedStorage").Modules.StatusEffects.Blindness:Destroy()
+   end,
+})
+
+local Tab = Window:CreateTab("Auto", 121171162573412)
+
+local Button = Tab:CreateButton({
+   Name = "Aimbot Mass-infection",
+   Callback = function()
+   Rayfield:Notify({
+   Title = "Aimbot Mass-infection Activated",
+   Content = "Use 1x1x1x1 For this to Function correctly.",
+   Duration = 3,
+   Image = 4483362458,
+})
+   local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local camlockEnabled = false
+local targetPlayer = nil
+
+function getClosestPlayer()
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+    local playerPosition = player.Character and player.Character:FindFirstChild("HumanoidRootPart").Position
+
+    if playerPosition then
+        for _, otherPlayer in ipairs(game:GetService("Players"):GetPlayers()) do
+            if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                local otherPlayerPosition = otherPlayer.Character.HumanoidRootPart.Position
+                local distance = (otherPlayerPosition - playerPosition).Magnitude
+                if distance < shortestDistance then
+                    closestPlayer = otherPlayer
+                    shortestDistance = distance
+                end
+            end
+        end
+    end
+    return closestPlayer
+end
+
+function enableCamlockForDuration()
+    targetPlayer = getClosestPlayer()
+    if targetPlayer then
+        camlockEnabled = true
+        delay(2, function()
+            camlockEnabled = false
+            targetPlayer = nil
+        end)
+    end
+end
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    if camlockEnabled and targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, targetPlayer.Character.HumanoidRootPart.Position)
+    end
+end)
+
+local playerGui = player:WaitForChild("PlayerGui")
+local mainUI = playerGui:WaitForChild("MainUI")
+local abilityContainer = mainUI:WaitForChild("AbilityContainer")
+local massInfectionButton = abilityContainer:WaitForChild("MassInfection")
+
+local function onMassInfectionButtonPressed()
+    enableCamlockForDuration()
+end
+
+massInfectionButton.Activated:Connect(onMassInfectionButtonPressed)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Aimbot Entanglement",
+   Callback = function()
+   Rayfield:Notify({
+   Title = "Aimbot Entanglement Activated",
+   Content = "Use 1x1x1x1 For this to Function correctly.",
+   Duration = 3,
+   Image = 4483362458,
+})
+   local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local camlockEnabled = false
+local targetPlayer = nil
+
+function getClosestPlayer()
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+    local playerPosition = player.Character and player.Character:FindFirstChild("HumanoidRootPart").Position
+
+    if playerPosition then
+        for _, otherPlayer in ipairs(game:GetService("Players"):GetPlayers()) do
+            if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                local otherPlayerPosition = otherPlayer.Character.HumanoidRootPart.Position
+                local distance = (otherPlayerPosition - playerPosition).Magnitude
+                if distance < shortestDistance then
+                    closestPlayer = otherPlayer
+                    shortestDistance = distance
+                end
+            end
+        end
+    end
+    return closestPlayer
+end
+
+function enableCamlockForDuration()
+    targetPlayer = getClosestPlayer()
+    if targetPlayer then
+        camlockEnabled = true
+        delay(2, function()
+            camlockEnabled = false
+            targetPlayer = nil
+        end)
+    end
+end
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    if camlockEnabled and targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, targetPlayer.Character.HumanoidRootPart.Position)
+    end
+end)
+
+local playerGui = player:WaitForChild("PlayerGui")
+local mainUI = playerGui:WaitForChild("MainUI")
+local abilityContainer = mainUI:WaitForChild("AbilityContainer")
+local entanglementButton = abilityContainer:WaitForChild("Entanglement")
+
+local function onEntanglementButtonPressed()
+    enableCamlockForDuration()
+end
+
+entanglementButton.Activated:Connect(onEntanglementButtonPressed)
    end,
 })
 
 local Button = Tab:CreateButton({
    Name = "Dusekkar Aimbot (switchable)",
    Callback = function()
+   Rayfield:Notify({
+   Title = "Dusekkar Aimbot Activated",
+   Content = "Use Dusekkar for this to work, The gui will not function correctly if In-lobby.",
+   Duration = 3,
+   Image = 4483362458,
+})
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 local toggleButton = Instance.new("TextButton")
@@ -585,117 +708,63 @@ end)
 })
 
 local Button = Tab:CreateButton({
-   Name = "Auto aim Entanglement",
+   Name = "Chance Aimbot (Use Shiftlock/First Person)",
    Callback = function()
-   local player = game.Players.LocalPlayer
-local mouse = player:GetMouse()
-local camlockEnabled = false
-local targetPlayer = nil
-
-function getClosestPlayer()
-    local closestPlayer = nil
-    local shortestDistance = math.huge
-    local playerPosition = player.Character and player.Character:FindFirstChild("HumanoidRootPart").Position
-
-    if playerPosition then
-        for _, otherPlayer in ipairs(game:GetService("Players"):GetPlayers()) do
-            if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                local otherPlayerPosition = otherPlayer.Character.HumanoidRootPart.Position
-                local distance = (otherPlayerPosition - playerPosition).Magnitude
-                if distance < shortestDistance then
-                    closestPlayer = otherPlayer
-                    shortestDistance = distance
-                end
-            end
-        end
-    end
-    return closestPlayer
-end
-
-function enableCamlockForDuration()
-    targetPlayer = getClosestPlayer()
-    if targetPlayer then
-        camlockEnabled = true
-        delay(2, function()
-            camlockEnabled = false
-            targetPlayer = nil
-        end)
-    end
-end
-
-game:GetService("RunService").RenderStepped:Connect(function()
-    if camlockEnabled and targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-        workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, targetPlayer.Character.HumanoidRootPart.Position)
-    end
-end)
-
-local playerGui = player:WaitForChild("PlayerGui")
-local mainUI = playerGui:WaitForChild("MainUI")
-local abilityContainer = mainUI:WaitForChild("AbilityContainer")
-local entanglementButton = abilityContainer:WaitForChild("Entanglement")
-
-local function onEntanglementButtonPressed()
-    enableCamlockForDuration()
-end
-
-entanglementButton.Activated:Connect(onEntanglementButtonPressed)
-   end,
+   Rayfield:Notify({
+   Title = "Chance Aimbot Activated",
+   Content = "Use chance for This to work.",
+   Duration = 3,
+   Image = 4483362458,
 })
 
-local Button = Tab:CreateButton({
-   Name = "Auto aim Mass infection",
-   Callback = function()
    local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 local camlockEnabled = false
-local targetPlayer = nil
+local targetObject = nil
 
-function getClosestPlayer()
-    local closestPlayer = nil
-    local shortestDistance = math.huge
-    local playerPosition = player.Character and player.Character:FindFirstChild("HumanoidRootPart").Position
-
-    if playerPosition then
-        for _, otherPlayer in ipairs(game:GetService("Players"):GetPlayers()) do
-            if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                local otherPlayerPosition = otherPlayer.Character.HumanoidRootPart.Position
-                local distance = (otherPlayerPosition - playerPosition).Magnitude
-                if distance < shortestDistance then
-                    closestPlayer = otherPlayer
-                    shortestDistance = distance
-                end
+function getTargetObject()
+    local killersFolder = workspace:WaitForChild("Players"):WaitForChild("Killers")
+    local closestObject = nil
+    local closestDistance = math.huge
+    for _, v in pairs(killersFolder:GetChildren()) do
+        if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") then
+            local screenPosition = workspace.CurrentCamera:WorldToScreenPoint(v.HumanoidRootPart.Position)
+            local distance = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(screenPosition.X, screenPosition.Y)).magnitude
+            if distance < closestDistance then
+                closestDistance = distance
+                closestObject = v
             end
         end
     end
-    return closestPlayer
+    return closestObject
 end
 
 function enableCamlockForDuration()
-    targetPlayer = getClosestPlayer()
-    if targetPlayer then
+    targetObject = getTargetObject()
+    if targetObject then
         camlockEnabled = true
         delay(2, function()
             camlockEnabled = false
-            targetPlayer = nil
+            targetObject = nil
         end)
     end
 end
 
 game:GetService("RunService").RenderStepped:Connect(function()
-    if camlockEnabled and targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-        workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, targetPlayer.Character.HumanoidRootPart.Position)
+    if camlockEnabled and targetObject and targetObject:FindFirstChild("HumanoidRootPart") then
+        workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, targetObject.HumanoidRootPart.Position)
     end
 end)
 
 local playerGui = player:WaitForChild("PlayerGui")
 local mainUI = playerGui:WaitForChild("MainUI")
 local abilityContainer = mainUI:WaitForChild("AbilityContainer")
-local massInfectionButton = abilityContainer:WaitForChild("MassInfection")
+local shootButton = abilityContainer:WaitForChild("Shoot")
 
-local function onMassInfectionButtonPressed()
+local function onShootButtonPressed()
     enableCamlockForDuration()
 end
 
-massInfectionButton.Activated:Connect(onMassInfectionButtonPressed)
+shootButton.Activated:Connect(onShootButtonPressed)
    end,
 })
