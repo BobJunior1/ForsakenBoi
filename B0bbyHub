@@ -436,3 +436,17 @@ end
 shootButton.Activated:Connect(onShootButtonPressed)
    end,
 })
+
+local Button = Tab:CreateButton({
+   Name = "Remove Slowness effect",
+   Callback = function()
+   game:GetService("ReplicatedStorage").Modules.StatusEffects.Slowness:Destroy()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Remove Blindness effect",
+   Callback = function()
+   game:GetService("ReplicatedStorage").Modules.StatusEffects.Blindness:Destroy()
+   end,
+})
