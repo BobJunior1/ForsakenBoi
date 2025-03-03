@@ -1,4 +1,8 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+ration()
+end
+
+shootButton.Activated:Connect(onShootButtonPressed)
+   enlocal Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "B0bbyHub / Forsaken (BETA)",
@@ -137,7 +141,7 @@ local Button = Tab:CreateButton({
    Title = "Generator esp Activated",
    Content = "All Generators are Now highlighted",
    Duration = 3,
-   Image = 95344475479538,
+   Image = 4483362458,
 })
    local function createOutline(item)
     local Highlight = Instance.new('Highlight')
@@ -173,7 +177,7 @@ local Button = Tab:CreateButton({
    Title = "Player esp Activated",
    Content = "All players are Now highlighted",
    Duration = 3,
-   Image = 95344475479538,
+   Image = 4483362458,
 })
 local Players = game:GetService("Players")
 
@@ -294,7 +298,7 @@ local Button = Tab:CreateButton({
    Title = "Esp Items Activated",
    Content = "All Items are Now highlighted.",
    Duration = 3,
-   Image = 95344475479538,
+   Image = 4483362458,
 })
    local Workspace = game:GetService("Workspace")
 
@@ -381,6 +385,8 @@ end)
    end,
 })
 
+local Section = Tab:CreateSection("other")
+
 local Button = Tab:CreateButton({
    Name = "Fullbright",
    Callback = function()
@@ -388,7 +394,7 @@ local Button = Tab:CreateButton({
    Title = "Fullbright Activated",
    Content = "Everything is Now Pretty Visible.",
    Duration = 6.5,
-   Image = 95344475479538,
+   Image = 4483362458,
 })
 game:GetService("Lighting").Brightness = 0.7
 game:GetService("Lighting").Ambient = Color3.new(0.75, 0.75, 0.75)
@@ -399,13 +405,41 @@ game:GetService("Lighting").FogEnd = 100000
 })
 
 local Button = Tab:CreateButton({
+    Name = "Remove Slowness effect",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Slowness Effect Removed",
+            Content = " ",
+            Duration = 6.5,
+            Image = 4483362458,
+        })
+        game:GetService("ReplicatedStorage").Modules.StatusEffects.Slowness:Destroy()
+    end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Remove Blindness effect",
+   Callback = function()
+   Rayfield:Notify({
+   Title = "Blindness effect Removed",
+   Content = " ",
+   Duration = 3,
+   Image = 4483362458,
+})
+   game:GetService("ReplicatedStorage").Modules.StatusEffects.Blindness:Destroy()
+   end,
+})
+
+local Tab = Window:CreateTab("Generators", 82564898490927)
+
+local Button = Tab:CreateButton({
    Name = "Delayed Auto fix generator (10 Second Delay)",
    Callback = function()
    Rayfield:Notify({
    Title = "Delayed Auto-fix generator Activated",
    Content = "You will need to Re-execute it Every round.",
    Duration = 3,
-   Image = 95344475479538,
+   Image = 4483362458,
 })
    while true do
 for i, v in pairs(game.Workspace.Map.Ingame.Map:GetChildren()) do
@@ -425,7 +459,7 @@ local Button = Tab:CreateButton({
    Title = "Delayed Auto-fix generator Activated",
    Content = "You will need to Re-execute it Every round.",
    Duration = 3,
-   Image = 95344475479538,
+   Image = 4483362458,
 })
    while true do
 for i, v in pairs(game.Workspace.Map.Ingame.Map:GetChildren()) do
@@ -439,29 +473,38 @@ end
 })
 
 local Button = Tab:CreateButton({
-    Name = "Remove Slowness effect",
-    Callback = function()
-        Rayfield:Notify({
-            Title = "Slowness Effect Removed",
-            Content = "Won't always work",
-            Duration = 6.5,
-            Image = 95344475479538,
-        })
-        game:GetService("ReplicatedStorage").Modules.StatusEffects.Slowness:Destroy()
-    end,
+   Name = "instant fix Quarter of the generator",
+   Callback = function()
+   for i, v in pairs(game.Workspace.Map.Ingame.Map:GetChildren()) do
+    if v.Name == "Generator" then
+        v:WaitForChild("Remotes"):WaitForChild("RE"):FireServer()
+    end
+end
+   end,
 })
 
-local Button = Tab:CreateButton({
-   Name = "Remove Blindness effect",
-   Callback = function()
-   Rayfield:Notify({
-   Title = "Blindness effect Removed",
-   Content = " ",
-   Duration = 3,
-   Image = 95344475479538,
-})
-   game:GetService("ReplicatedStorage").Modules.StatusEffects.Blindness:Destroy()
-   end,
+local Input = Tab:CreateInput({
+    Name = "Custom Generator Delay time",
+    CurrentValue = "",
+    PlaceholderText = "Insert Delay Time(Seconds)",
+    RemoveTextAfterFocusLost = false,
+    Flag = "InputGeneratorCustom",
+    Callback = function(Text)
+        Rayfield:Notify({
+            Title = "Custom Delay Time Set",
+            Content = "Custom Delay Time set to " .. Text,
+            Duration = 6.5,
+            Image = 4483362458,
+        })
+        while true do
+            for i, v in pairs(game.Workspace.Map.Ingame.Map:GetChildren()) do
+                if v.Name == "Generator" then
+                    v:WaitForChild("Remotes"):WaitForChild("RE"):FireServer()
+                end
+            end
+            wait(Text)
+        end
+    end,
 })
 
 local Tab = Window:CreateTab("Auto", 121171162573412)
@@ -473,7 +516,7 @@ local Button = Tab:CreateButton({
    Title = "Aimbot Mass-infection Activated",
    Content = "Use 1x1x1x1 For this to Function correctly.",
    Duration = 3,
-   Image = 95344475479538,
+   Image = 4483362458,
 })
    local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
@@ -537,7 +580,7 @@ local Button = Tab:CreateButton({
    Title = "Aimbot Entanglement Activated",
    Content = "Use 1x1x1x1 For this to Function correctly.",
    Duration = 3,
-   Image = 95344475479538,
+   Image = 4483362458,
 })
    local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
@@ -601,7 +644,7 @@ local Button = Tab:CreateButton({
    Title = "Dusekkar Aimbot Activated",
    Content = "Use Dusekkar for this to work, The gui will not function correctly if In-lobby.",
    Duration = 3,
-   Image = 95344475479538,
+   Image = 4483362458,
 })
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -731,7 +774,7 @@ local Button = Tab:CreateButton({
    Title = "Chance Aimbot Activated",
    Content = "Use chance for This to work.",
    Duration = 3,
-   Image = 95344475479538,
+   Image = 4483362458,
 })
 
    local player = game.Players.LocalPlayer
@@ -784,4 +827,4 @@ end
 
 shootButton.Activated:Connect(onShootButtonPressed)
    end,
-})
+})})
