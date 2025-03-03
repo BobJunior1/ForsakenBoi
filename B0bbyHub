@@ -1,8 +1,4 @@
-ration()
-end
-
-shootButton.Activated:Connect(onShootButtonPressed)
-   enlocal Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "B0bbyHub / Forsaken (BETA)",
@@ -507,7 +503,7 @@ local Input = Tab:CreateInput({
     end,
 })
 
-local Tab = Window:CreateTab("Auto", 121171162573412)
+local Tab = Window:CreateTab("Aimbot", 121171162573412)
 
 local Button = Tab:CreateButton({
    Name = "Aimbot Mass-infection",
@@ -827,4 +823,4 @@ end
 
 shootButton.Activated:Connect(onShootButtonPressed)
    end,
-})})
+})
