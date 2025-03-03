@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "B0bbyHub / Forsaken (Newest Patch)",
+   Name = "B0bbyHub / Forsaken (BETA)",
    Icon = 99972211610543, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "B0bbyhub / Forsaken (BETA)",
    LoadingSubtitle = "Loading..",
@@ -384,6 +384,12 @@ end)
 local Button = Tab:CreateButton({
    Name = "Fullbright",
    Callback = function()
+   Rayfield:Notify({
+   Title = "Fullbright Activated",
+   Content = "Everything is Now Pretty Visible.",
+   Duration = 6.5,
+   Image = 4483362458,
+})
 game:GetService("Lighting").Brightness = 0.7
 game:GetService("Lighting").Ambient = Color3.new(0.75, 0.75, 0.75)
 game:GetService("Lighting").OutdoorAmbient = Color3.new(0.75, 0.75, 0.75)
@@ -437,7 +443,7 @@ local Button = Tab:CreateButton({
     Callback = function()
         Rayfield:Notify({
             Title = "Slowness Effect Removed",
-            Content = "its normal if it says \"callback-function"\ if you try executing it again.",
+            Content = " ",
             Duration = 6.5,
             Image = 4483362458,
         })
@@ -450,7 +456,7 @@ local Button = Tab:CreateButton({
    Callback = function()
    Rayfield:Notify({
    Title = "Blindness effect Removed",
-   Content = "its normal if it says \"callback-function"\ if you try executing it again.",
+   Content = " ",
    Duration = 3,
    Image = 4483362458,
 })
