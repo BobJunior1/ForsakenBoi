@@ -422,16 +422,16 @@ end
 })
 
 local Button = Tab:CreateButton({
-   Name = "Remove Slowness effect",
-   Callback = function()
-   Rayfield:Notify({
-   Title = "Slowness Effect Removed",
-   Content = "its normal if it says "Callback Function" if you try executing it again.",
-   Duration = 6.5,
-   Image = 4483362458,
-})
-   game:GetService("ReplicatedStorage").Modules.StatusEffects.Slowness:Destroy()
-   end,
+    Name = "Remove Slowness effect",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Slowness Effect Removed",
+            Content = "its normal if it says "callback-function" if you try executing it again.",
+            Duration = 6.5,
+            Image = 4483362458,
+        })
+        game:GetService("ReplicatedStorage").Modules.StatusEffects.Slowness:Destroy()
+    end,
 })
 
 local Button = Tab:CreateButton({
@@ -439,7 +439,7 @@ local Button = Tab:CreateButton({
    Callback = function()
    Rayfield:Notify({
    Title = "Blindness effect Removed",
-   Content = "its normal if it says "Callback Function" if you try executing it again.",
+   Content = "its normal if it says "callback-function" if you try executing it again.",
    Duration = 3,
    Image = 4483362458,
 })
