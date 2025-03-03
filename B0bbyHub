@@ -1,6 +1,6 @@
 if game.PlaceId == 18687417158 then
     game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Script Loading",
+        Title = "Script Loading T",
         Text = "Also, cool you're in the right game",
         Icon = "rbxassetid://95060402744284"
     })
