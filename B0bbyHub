@@ -137,7 +137,7 @@ local Button = Tab:CreateButton({
    Title = "Generator esp Activated",
    Content = "All Generators are Now highlighted",
    Duration = 3,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
    local function createOutline(item)
     local Highlight = Instance.new('Highlight')
@@ -173,7 +173,7 @@ local Button = Tab:CreateButton({
    Title = "Player esp Activated",
    Content = "All players are Now highlighted",
    Duration = 3,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
 local Players = game:GetService("Players")
 
@@ -294,7 +294,7 @@ local Button = Tab:CreateButton({
    Title = "Esp Items Activated",
    Content = "All Items are Now highlighted.",
    Duration = 3,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
    local Workspace = game:GetService("Workspace")
 
@@ -388,7 +388,7 @@ local Button = Tab:CreateButton({
    Title = "Fullbright Activated",
    Content = "Everything is Now Pretty Visible.",
    Duration = 6.5,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
 game:GetService("Lighting").Brightness = 0.7
 game:GetService("Lighting").Ambient = Color3.new(0.75, 0.75, 0.75)
@@ -405,7 +405,7 @@ local Button = Tab:CreateButton({
    Title = "Delayed Auto-fix generator Activated",
    Content = "You will need to Re-execute it Every round.",
    Duration = 3,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
    while true do
 for i, v in pairs(game.Workspace.Map.Ingame.Map:GetChildren()) do
@@ -425,7 +425,7 @@ local Button = Tab:CreateButton({
    Title = "Delayed Auto-fix generator Activated",
    Content = "You will need to Re-execute it Every round.",
    Duration = 3,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
    while true do
 for i, v in pairs(game.Workspace.Map.Ingame.Map:GetChildren()) do
@@ -443,9 +443,9 @@ local Button = Tab:CreateButton({
     Callback = function()
         Rayfield:Notify({
             Title = "Slowness Effect Removed",
-            Content = " ",
+            Content = "Won't always work",
             Duration = 6.5,
-            Image = 4483362458,
+            Image = 95344475479538,
         })
         game:GetService("ReplicatedStorage").Modules.StatusEffects.Slowness:Destroy()
     end,
@@ -458,7 +458,7 @@ local Button = Tab:CreateButton({
    Title = "Blindness effect Removed",
    Content = " ",
    Duration = 3,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
    game:GetService("ReplicatedStorage").Modules.StatusEffects.Blindness:Destroy()
    end,
@@ -473,7 +473,7 @@ local Button = Tab:CreateButton({
    Title = "Aimbot Mass-infection Activated",
    Content = "Use 1x1x1x1 For this to Function correctly.",
    Duration = 3,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
    local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
@@ -537,7 +537,7 @@ local Button = Tab:CreateButton({
    Title = "Aimbot Entanglement Activated",
    Content = "Use 1x1x1x1 For this to Function correctly.",
    Duration = 3,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
    local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
@@ -601,7 +601,7 @@ local Button = Tab:CreateButton({
    Title = "Dusekkar Aimbot Activated",
    Content = "Use Dusekkar for this to work, The gui will not function correctly if In-lobby.",
    Duration = 3,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -731,7 +731,7 @@ local Button = Tab:CreateButton({
    Title = "Chance Aimbot Activated",
    Content = "Use chance for This to work.",
    Duration = 3,
-   Image = 4483362458,
+   Image = 95344475479538,
 })
 
    local player = game.Players.LocalPlayer
