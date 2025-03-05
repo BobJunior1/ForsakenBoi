@@ -1,3 +1,16 @@
+
+-- tf your doing here lil bro, GET THE FUCK OUT
+
+
+
+
+
+
+
+
+
+
+
 if game.PlaceId == 18687417158 then
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Script Loading..",
