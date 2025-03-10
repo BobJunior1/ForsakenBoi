@@ -2,7 +2,7 @@ if game.PlaceId == 18687417158 then
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "B0bby Hub",
         Text = "Welcome to B0bby Hub!",
-        Image = "105780464700717",
+        Image = "",
         Duration = 5
     })
 
@@ -11,7 +11,7 @@ if game.PlaceId == 18687417158 then
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Script Loading...",
         Text = "New Features Have been Added!",
-        Image = "125931919693931",
+        Image = "",
         Duration = 5
     })
     
@@ -19,7 +19,7 @@ else
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "You are not in Forsaken.",
         Text = "Please Join the Original Game for this script to function Correctly.",
-        Image = "106725422925394",
+        Image = "",
         Duration = 5
     })
 end
