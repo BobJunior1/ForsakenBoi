@@ -9,7 +9,7 @@ if game.PlaceId == 18687417158 then
     wait(1)
 
     game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Script Loading...",
+        Title = "Script Loading..",
         Text = "New Features Have been Added!",
         Image = "",
         Duration = 5
